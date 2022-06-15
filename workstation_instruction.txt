@@ -1,0 +1,12 @@
+b07902126@meow2.csie.ntu.edu.tw:~/ML_HW4
+
+scp filename b07902126@meow2.csie.ntu.edu.tw:~/ML_HW4
+
+vim hw04.py
+:qw 存檔離開
+:w 離開
+
+
+tmux attach-session -t 0 執行tmux
+
+(ctrl + b) +d離開tmux

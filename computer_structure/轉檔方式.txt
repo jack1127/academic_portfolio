@@ -1,0 +1,8 @@
+第三題可直接.c檔轉成.s檔
+
+gcc 轉檔 in docker
+                           
+riscv64-unknown-elf-gcc -S .c -o .s 
+ex: riscv64-unknown-elf-gcc -S fib_test.c -o fib_test.s
+make test (編譯
+

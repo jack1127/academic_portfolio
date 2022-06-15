@@ -1,0 +1,60 @@
+link /3/q to /2/a
+/3/q/p
+
+while : path = q/p, name = 3, inode = /
+ 
+while : path = p, name = q, inode = 3
+
+while : path = , name = p, inode = q
+if SYMLINK 
+    ip->target = /2/a
+    path = /a/p, name = 2
+
+while : path = , name = p, inode = 2
+
+//////////
+Start: test symlinks to directory
+
+before while : path = /testsymlink2
+in while: path = , name = testsymlink2
+
+before while : path = /testsymlink3
+in while: path = , name = testsymlink3
+
+before while : path = /testsymlink2/p
+in while: path = p, name = testsymlink2
+in while: path = , name = p
+
+before while : path = /testsymlink3/q
+in while: path = q, name = testsymlink3
+in while: path = , name = q
+
+before while : path = /testsymlink3/q/p
+in while: path = q/p, name = testsymlink3
+in while: path = p, name = q
+in while: path = , name = p
+in if: path = p, name = testsymlink2
+in while: path = , name = p
+
+////////////////////
+second part!!!
+
+before while : path = /testsymlink3/q
+in while: path = q, name = testsymlink3
+in while: path = , name = q
+
+in chdir while with path = /testsymlink3/q
+
+before while : path = /testsymlink3/q
+in while: path = q, name = testsymlink3
+in while: path = , name = q
+
+in chdir while with path = /testsymlink2
+
+before while : path = /testsymlink2
+in while: path = , name = testsymlink2
+end chdir path = /testsymlink2
+
+before while : path = p
+in while: path = , name = p
+test symlinks to directory: ok
